@@ -1,1 +1,1 @@
-{"root":["./src/index.ts"],"version":"5.8.2"}
+{"root":["./src/index.ts","./src/controllers/visualizeController.ts","./src/middlewares/visualizeMiddleware.ts","./src/prompts/codeVisualizePrompt.ts","./src/routes/agentRoutes.ts","./src/zod-types/visualizeTypes.ts"],"version":"5.8.2"}
