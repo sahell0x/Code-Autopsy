@@ -3,12 +3,13 @@ import { Code2, Play, Trash2 } from 'lucide-react';
 interface CodeEditorProps {
   isDark: boolean;
   code: string;
+  isLoading : boolean;
   onCodeChange: (code: string) => void;
   onVisualize: () => void;
   onClear: () => void;
 }
 
-export function CodeEditor({ isDark, code, onCodeChange, onVisualize, onClear }: CodeEditorProps) {
+export function CodeEditor({ isDark, isLoading, code, onCodeChange, onVisualize, onClear }: CodeEditorProps) {
   return (
     <div className={`${
       isDark ? 'bg-slate-800/50 border-slate-700' : 'bg-white/50 border-slate-200'
@@ -29,7 +30,7 @@ export function CodeEditor({ isDark, code, onCodeChange, onVisualize, onClear }:
       <textarea
         value={code}
         onChange={(e) => onCodeChange(e.target.value)}
-        className={`w-full h-[300px] sm:h-[400px] p-4 font-mono text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none transition-colors duration-200 ${
+        className={`scrollbar-none w-full h-[300px] sm:h-[400px] p-4 font-mono text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none transition-colors duration-200 ${
           isDark 
             ? 'bg-slate-900/50 text-slate-300 border-slate-700' 
             : 'bg-slate-50 text-slate-900 border-slate-200'
@@ -40,6 +41,7 @@ export function CodeEditor({ isDark, code, onCodeChange, onVisualize, onClear }:
       <div className="flex flex-col sm:flex-row gap-3 sm:space-x-4 mt-4 sm:mt-6">
         <button
           onClick={onVisualize}
+          disabled={isLoading}
           className="flex items-center justify-center px-6 py-2.5 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-200 group w-full sm:w-auto"
         >
           <Play className="h-5 w-5 mr-2 group-hover:translate-x-1 transition-transform" />

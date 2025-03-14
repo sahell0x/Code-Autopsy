@@ -1,4 +1,5 @@
 import { Terminal, Minimize2 } from 'lucide-react';
+import parse from 'html-react-parser';
 
 interface FullscreenDialogProps {
   isDark: boolean;
@@ -32,10 +33,12 @@ export function FullscreenDialog({ isDark, visualization, onClose }: FullscreenD
             <Minimize2 className="h-5 w-5" />
           </button>
         </div>
-        <div className={`flex-1 overflow-auto p-4 sm:p-6 ${
+        <div className={`scrollbar-thin flex-1 overflow-auto p-4 sm:p-6 ${
           isDark ? 'bg-slate-900/50' : 'bg-slate-50'
         }`}>
-          <div dangerouslySetInnerHTML={{ __html: visualization }} />
+          <div>
+          {parse(visualization)}
+          </div>
         </div>
       </div>
     </div>
