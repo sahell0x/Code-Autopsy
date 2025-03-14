@@ -1,4 +1,6 @@
-const validateVisualizeHTML = (htmlData: string) => {
+import { HTMLDataType } from "../types/responseTypes";
+
+const validateVisualizeHTML = (htmlData: HTMLDataType) => {
   if (htmlData) {
     if (
       htmlData != "CANNOT VISUALIZE" &&
