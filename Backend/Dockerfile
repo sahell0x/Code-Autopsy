@@ -2,11 +2,13 @@ FROM node:20-alpine
 
 WORKDIR /app
 
+COPY package* .
+
+RUN npm install
+
 COPY . .
 
-# pass API_KEY , AGENT_MODEL envs whilerunnig the container 
-
-RUN npm install && npx tsc
+ RUN npx tsc -b
 
 EXPOSE 3000
 
